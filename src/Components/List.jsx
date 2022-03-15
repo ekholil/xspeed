@@ -50,7 +50,7 @@ const List = () => {
   };
   const handleSearch = (e) => {
     const searchText = e.target.value;
-    const matched = data.filter(item => item?.name?.toLowerCase().includes(searchText?.toLowerCase()) || item?.id.toString().includes(searchText) || item?.created_at.toString().includes(searchText) )
+    const matched = data.filter(item => item?.user_name?.toLowerCase().includes(searchText?.toLowerCase()) || item?.id.toString().includes(searchText) || item?.created_at.toString().includes(searchText) )
     setRecords(matched)
   } 
   const navigate = useNavigate()
