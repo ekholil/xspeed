@@ -1,0 +1,12 @@
+github link : https://github.com/ekholil/xspeed
+
+How to run this project on your local machine
+
+1. clone github repo
+
+2. open cmd in this folder and run 'npm install'
+
+3. after installing dependencies, then run 'npm run dev' 
+
+4. if automatically didnot open browser, then open browser and go to url http://localhost:3000/ or recommended url from cmd
+

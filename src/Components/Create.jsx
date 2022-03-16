@@ -43,6 +43,10 @@ const Create = () => {
 // handle input change
 
   const handleInputChange = (index, event) => {
+    const result = /^[a-z0-9]+$/i.test(event.target.value);
+    if(!result){
+      return
+    }
     const values = [...inputFields];
     if (event.target.name === "work_place") {
       values[index].work_place = event.target.value;
@@ -173,7 +177,7 @@ const Create = () => {
 
         <button disabled={loading} className="btn btn-primary mb-5" type="submit" >{loading ? <Spinner animation="border" />:'Submit'}</button>
       </form>
-      <button onClick={() => toast.success('user added to database', {position: 'bottom-left'})}>show toast</button>
+      
      <Toaster />
     </div>
   );

@@ -8,6 +8,7 @@ import { COLUMNS } from "./Columns";
 import { Button, Table } from "react-bootstrap";
 import {CgMathEqual} from 'react-icons/cg'
 import {  useNavigate } from "react-router-dom";
+import { Toaster, toast } from "react-hot-toast";
 
 const List = () => {
   const data = React.useMemo(() => makeData, []);
@@ -58,7 +59,7 @@ const List = () => {
     <DndProvider backend={HTML5Backend}>
       <div>
        <input className="container mt-4 mb-4 form-control" placeholder="Type to Search" type="text" onChange={handleSearch} />
-       
+       <Toaster />
       </div>
       <Table bordered hover className="text-center container" {...getTableProps()}>
         <thead>
@@ -113,6 +114,7 @@ const Row = ({ row, index, moveRow }) => {
       const hoverIndex = index;
       // Don't replace items with themselves
       if (dragIndex === hoverIndex) {
+        
         return;
       }
       // Determine rectangle on screen
@@ -126,15 +128,17 @@ const Row = ({ row, index, moveRow }) => {
       const hoverClientY = clientOffset.y - hoverBoundingRect.top;
     
       if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+        
         return;
       }
       // Dragging upwards
       if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+        
         return;
       }
       // Time to actually perform the action
       moveRow(dragIndex, hoverIndex);
-     
+      toast.success('List Reordered successfully', {position: 'top-center'})
       item.index = hoverIndex;
     },
   });
